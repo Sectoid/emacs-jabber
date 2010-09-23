@@ -73,6 +73,7 @@
       (if (and (not (plist-get (fsm-get-state-data jc) :encrypted))
 	       (member (sasl-mechanism-name mechanism)
 		       '("PLAIN" "LOGIN"))
+	       (not jabber-allow-cleartext)
 	       (not (yes-or-no-p "Jabber server only allows cleartext password transmission!  Continue? ")))
 	  (fsm-send jc :authentication-failure)
 

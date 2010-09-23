@@ -130,6 +130,12 @@ problems."
   :type 'boolean
   :group 'jabber-core)
 
+(defcustom jabber-allow-cleartext nil
+  "If not nil allows cleartext authentication without annoying messagebox."
+  :type 'boolean
+  :group 'jabber-core)
+
+
 (defsubst jabber-have-sasl-p ()
   "Return non-nil if SASL functions are available."
   (featurep 'sasl))
