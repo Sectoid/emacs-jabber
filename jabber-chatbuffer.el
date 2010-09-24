@@ -39,8 +39,8 @@ window or at `fill-column', whichever is shorter."
   :type 'boolean)
 
 (defcustom jabber-send-keybinding nil
-  "Define custom send keybinding"
-  :type 'string
+  "Define custom send keybinding. Use kbd-compatible strings like 's-<return>' please."
+  :type  'string
   :group 'jabber-chat)
 
 (defvar jabber-chat-ewoc nil
