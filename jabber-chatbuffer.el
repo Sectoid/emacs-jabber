@@ -38,6 +38,11 @@ window or at `fill-column', whichever is shorter."
   :group 'jabber-chat
   :type 'boolean)
 
+(defcustom jabber-send-keybinding nil
+  "Define custom send keybinding"
+  :type 'string
+  :group 'jabber-chat)
+
 (defvar jabber-chat-ewoc nil
   "The ewoc showing the messages of this chat buffer.")
 
@@ -92,7 +97,9 @@ window or at `fill-column', whichever is shorter."
 (defvar jabber-chat-mode-map 
   (let ((map (make-sparse-keymap)))
     (set-keymap-parent map jabber-common-keymap)
-    (define-key map "\r" 'jabber-chat-buffer-send)
+    (if jabber-send-keybinding
+        (define-key map (read-kbd-macro jabber-send-keybinding) 'jabber-chat-buffer-send)
+        (define-key map "\r" 'jabber-chat-buffer-send))
     map))
 
 (defun jabber-chat-buffer-send ()
