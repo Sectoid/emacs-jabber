@@ -13,3 +13,4 @@ jabber-autoloads.el
 jabber-ourversion.el
 jabber.info
 emacs-jabber.schemas
+/autom4te.cache
